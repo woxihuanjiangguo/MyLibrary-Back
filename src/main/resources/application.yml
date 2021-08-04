@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      tracking-modes: cookie
+      cookie:
+        http-only: true
+
+logging:
+  file:
+    path: /var/tmp/mylog.log
+jwt:
+  token:
+    validity: 18000000
+    secret: FdseFdse2021
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/book?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: dms
+    password: Di17zufuwuqi*
+    tomcat:
+      max-wait: 10000
+    dbcp2:
+      max-idle: 10
+      min-idle: 1
+      initial-size: 5
+      max-conn-lifetime-millis: 27000000
+    hikari:
+      connection-timeout: 600000
+      maximum-pool-size: 500
+      max-lifetime: 1800000
+      minimum-idle: 20
+      validation-timeout: 3000
+      idle-timeout: 60000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+  mail:
+    host: smtp.163.com
+    # 暂时使用我的邮箱
+    username: woxihuanruanjian@163.com
+    password: SLWZLNQDYTNUMBJO
+    port: 465
+    default-encoding: UTF-8
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail:
+        smtp:
+          ssl:
+            enable: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+
+
+
